@@ -1,5 +1,5 @@
 <template>
-    <default-field :field="field">
+    <default-field :field="field" :full-width-content="true">
         <template slot="field">
             <div :class="[errorClasses, errorClasses.length ? 'border' : '']" @keydown.stop>
                 <trumbowyg v-model="value" :config="field.options"></trumbowyg>
@@ -13,9 +13,17 @@
 </template>
 
 <script>
-import { FormField, HandlesValidationErrors } from 'laravel-nova'
-import trumbowyg from 'vue-trumbowyg';
-import 'trumbowyg/dist/ui/trumbowyg.css';
+    import { FormField, HandlesValidationErrors } from 'laravel-nova'
+    import trumbowyg from 'vue-trumbowyg';
+    import 'trumbowyg/dist/ui/trumbowyg.css';
+    import 'trumbowyg/dist/plugins/upload/trumbowyg.upload';
+    import 'trumbowyg/dist/plugins/emoji/trumbowyg.emoji';
+    import 'trumbowyg/dist/plugins/table/trumbowyg.table';
+    import 'jquery-resizable/resizable';
+    import 'jquery-resizable/resizable.css';
+    import 'trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg';
+    import 'trumbowyg/dist/plugins/cleanpaste/trumbowyg.cleanpaste';
+    import 'trumbowyg/dist/plugins/pasteembed/trumbowyg.pasteembed';
 
 export default {
     mixins: [FormField, HandlesValidationErrors],
